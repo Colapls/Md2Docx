@@ -1,0 +1,29 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# PyInstaller 中间产物
+build/
+*.spec.bak
+
+# 临时调试文件
+debug.log
+formula_debug*.docx
+formula_simple.docx
+*.tmp.docx
+
+# Office 临时文件
+~$*.docx
+~$*.xlsx
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试输出
+test_output/
+
+# 用户测试样例（不公开上传）
+test_files/
