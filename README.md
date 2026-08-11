@@ -56,7 +56,7 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 
 ### 方法一：下载预编译版本（推荐普通用户）
 
-前往 [Releases](https://github.com/yourname/Md2Docx/releases) 页面下载最新 `Markdown2Docx.exe`，
+前往 [Releases](https://github.com/Colapls/Md2Docx/releases) 页面下载最新 `Markdown2Docx.exe`，
 双击运行即可。**无需安装 Python**。
 
 
@@ -66,7 +66,7 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/yourname/Md2Docx.git
+git clone https://github.com/Colapls/Md2Docx.git
 cd Md2Docx
 
 # 2. 安装依赖
