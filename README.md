@@ -14,7 +14,7 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 
 ## ✨ 功能亮点
 
-### �� 文本格式
+### 文本格式
 - **字体 / 字号**：中文字体、英文字体、正文字号全部独立可配
 - **段落**：行间距、首行缩进、标题段前段后距
 - **标题自动编号**：一键去掉原有编号，按 1 / 1.1 / 1.1.1 重新编号
@@ -22,13 +22,13 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 - **空格清理**：自动合并字母/数字旁的空格、`中文 英文` 之间的空格
 - **中文引号**：自动将 `"..."` 转成 `"..."` 并按出现顺序左右配对
 
-### �� 数学公式
+### 数学公式
 - **`$...$` 行内公式 + `$$...$$` 块公式**
 - 通过 **pandoc** 把 LaTeX 翻译成 **Office Math Markup Language (OMML)** —— Word/WPS 双击公式即可进入公式编辑器继续修改
 - **公式居中显示**
 - 没装 pandoc 时自动降级到内置 `latex2mathml`（输出 MathML，Word 也能识别）
 
-### �� 表格
+### 表格
 - ✅ 自动给所有单元格加边框
 - ✅ 单元格文字对齐：靠左 / 居中 / 靠右
 - ✅ 表格整体居中显示
@@ -37,7 +37,7 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 - ✅ 表格后自动加一行空行，拉开与正文的距离
 - ✅ 表格内容（字体/字号/行间距/无缩进）**完全独立于正文设置**
 
-### ��️ 界面
+### 界面
 - 文件选择 → 字体/段落设置 → 转换，**三步完成**
 - 帮助按钮 + 状态栏实时反馈
 - 滚动容器 + 固定底部的转换按钮，**永远可见**
@@ -46,51 +46,19 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 
 ---
 
-## �� 截图
+## 截图
 
-TODO: 截图占位
-
-```
-┌────────────────────────────────────────────┐
-│  Markdown 转 DOCX                          │
-│                                            │
-│  文件选择：[.../example.md          ] [浏览] │
-│                                            │
-│  ▼ 字体设置                                │
-│    ▼ 标题1: 黑体 16pt                       │
-│      ...                                   │
-│    正文字体: 宋体 10.5pt                     │
-│                                            │
-│  ▼ 段落设置                                │
-│    行间距: 1.5   首行缩进: 2 字符             │
-│                                            │
-│  ▼ 表格设置 (勾选"处理表格"后展开)            │
-│    单元格对齐: 居中                          │
-│    表格字体: 楷体 9pt                        │
-│    行间距: 1.0                              │
-│                                            │
-│  ☑ 自动去除多余空格 ☑ 标题重新编号            │
-│  ☑ 处理表格                                  │
-│  公式转换: [pandoc    ▼]                     │
-│                                            │
-│  [           转    换              ]          │
-│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░  调用 pandoc 翻译公式  │
-│                                            │
-│  ▼ 状态                                    │
-│  ...                                       │
-└────────────────────────────────────────────┘
-```
+![截图](截图.png)
 
 ---
 
-## �� 快速开始
+## 快速开始
 
 ### 方法一：下载预编译版本（推荐普通用户）
 
 前往 [Releases](https://github.com/yourname/Md2Docx/releases) 页面下载最新 `Markdown2Docx.exe`，
 双击运行即可。**无需安装 Python**。
 
-> ⚠️ 首次启动可能需要 1~2 秒。
 
 ### 方法二：从源码运行（推荐开发者）
 
@@ -123,7 +91,7 @@ python -m PyInstaller build.spec
 
 ---
 
-## �� 依赖说明
+## 依赖说明
 
 | 包 | 用途 | 必需 |
 |---|---|---|
@@ -133,7 +101,7 @@ python -m PyInstaller build.spec
 | `pyinstaller` | 打包成 exe | 仅打包时 |
 | **pandoc** | **公式转换（OMML）** | ⭐ 推荐 |
 
-> �� **强烈建议安装 pandoc**。装上之后公式就是 Word 原生公式对象，可双击编辑。
+> **强烈建议安装 pandoc**。装上之后公式就是 Word 原生公式对象，可双击编辑。
 > 没装也能用——内置 `latex2mathml` 会用 MathML 兜底。
 
 安装 pandoc：
@@ -143,7 +111,7 @@ python -m PyInstaller build.spec
 
 ---
 
-## ��️ 项目结构
+## 项目结构
 
 ```
 Md2Docx/
@@ -222,87 +190,16 @@ Md2Docx/
 
 ---
 
-## �� 高级用法
-
-### 自定义 pandoc 路径
-
-程序优先从 `PATH` 中查找 pandoc。如果装在非标准位置，可以：
-
-```python
-# main.py
-from converter.pandoc_helper import md_to_docx_via_pandoc
-md_to_docx_via_pandoc(input_path, output_path,
-                      pandoc_exe=r'D:\tools\pandoc\pandoc.exe')
-```
-
-### 修改样式补丁
-
-样式补丁的核心逻辑在 [converter/style_patcher.py](converter/style_patcher.py)：
-
-- `patch_docx_styles()` —— 入口
-- `ensure_table_content_style()` —— 表格段落样式（防止 BodyText 首行缩进泄漏）
-- `_patch_tables()` —— 表格边框 / 对齐 / 表名
-- `_auto_number_headings()` —— 标题自动编号
-- `_replace_in_wt()` —— 跨段落文本操作（空格 / 引号）
-
-### 二次开发
-
-`main.py` 的 `Application._collect_settings()` 返回一个 dict，
-传给 `converter.style_patcher.patch_docx_styles()` 即可。
-你可以写自己的脚本调用同一套接口做批量转换：
-
-```python
-from converter.style_patcher import patch_docx_styles
-from converter.docx_generator import FontSettings, ParagraphSettings
-
-settings = {
-    'body_font': FontSettings(font_size=10.5, chinese_font='宋体'),
-    'heading_fonts': [...],
-    'body_para': ParagraphSettings(line_spacing=1.5),
-    'process_tables': True,
-    'table_cell_alignment': 'center',
-    'renumber_headings': True,
-}
-
-patch_docx_styles('input.docx', 'output.docx', settings)
-```
-
----
-
-## �� 测试
-
-`test_files/` 目录有几个真实科研文档（Word 复杂公式 + 长中文 + 表格），适合回归测试。
-
-```bash
-# 跑一次完整转换
-python main.py
-# 选择 test_files/6.5.3_数字孪生驱动的快速改造流程.md
-# 输出到任意位置，对比 .docx 的渲染效果
-```
-
----
-
-## �� 已知问题
+## 已知问题
 
 - **pandoc 翻译失败的公式**：极少数 LaTeX 宏包命令 texmath 不认识，会原样输出。能转的公式：分式、积分、矩阵、求和、希腊字母、单位、上下标、根号 —— 95% 日常科研/工程场景够用。
 - **emoji 输出**：Markdown 里的 emoji 会以图片形式落到 docx 中，文件会变大。
 - **公式块末的空格**：pandoc 转 OMML 时偶尔会在 `$$ ... $$` 之后留下空行，工具未做处理（如有需要可手动删）。
 
----
-
-## ��️ 路线图
-
-- [ ] 表格从 Caption 字段读取"表名"（目前固定为"表名"）
-- [ ] 图片自动居中 + 尺寸调整
-- [ ] 代码块带背景色 + 等宽字体
-- [ ] 引用块样式
-- [ ] 脚注 / 尾注
-- [ ] 批量转换（目录级）
-- [ ] 命令行模式（无 GUI 转换）
 
 ---
 
-## �� 贡献
+## 贡献
 
 欢迎 PR / Issue。提交前请：
 
@@ -312,13 +209,13 @@ python main.py
 
 ---
 
-## �� 许可证
+## 许可证
 
 本项目使用 [MIT License](LICENSE)。
 
 ---
 
-## �� 致谢
+## 致谢
 
 - [pandoc](https://pandoc.org/) —— 公式转换
 - [texmath](https://github.com/jgm/tex
