@@ -10,6 +10,7 @@ build/
 
 # 临时调试文件
 debug.log
+build.log
 formula_debug*.docx
 formula_simple.docx
 *.tmp.docx

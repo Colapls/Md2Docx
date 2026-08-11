@@ -48,7 +48,7 @@ AI生成的 Markdown文件，**一键**得到排版规范、能直接发给同�
 
 ## 截图
 
-![截图](截图.png)
+![主界面](docs/screenshots/main-ui.png)
 
 ---
 
